@@ -4,7 +4,7 @@ Current weather
 temp
 image
 
-![wireframe](pseudocode/weather-app.png)
+![wireframe](./weather-app.png)
 
 single div
 - dynamic generation with javascript
@@ -30,6 +30,8 @@ temp: ...
 
 
     state = [
+      data()
+      object values from data funct
     {
        icon: ...
        Description: ...
@@ -44,39 +46,41 @@ temp: ...
     }
     ];
     
-    **getWeather()** {<br>
+    getWeather() {
     gets data from api
-       fetch('ur + ${userInputZip} + apiCode or code')<br>
-       fetch returns values<br>
+       fetch('url + ${userInputZip} + apiCode or code')
+       fetch returns values
+       set interval for live update
     };
 
-    **initialState()** {<br>
+    initialState() {
        getElementById
        create elements
        - user input & submit btn
        - header
        append elements
        assign container class - classlist
-       gets values from **getWeather()**<br>
-    };<br>
+       gets values from getWeather()
+    };
     
     data() {
+      getWeather()
        async
-       displays values only when valid zip is entered<br>
+       displays values only when valid zip is entered
        throws error message if zip is invalid<br>
-       - city<br>
-       - temp - convert value<br>
-       - condition <br>
-       - images?<br>
+       - city
+       - temp - convert value
+       - condition
+       - images?
     }
     
     tempConvert() {
-      converts
+      converts temp values if needed
     };
     
     image() {
-       picks images from []
-       based on weather
+       picks images from an array[] of images
+       based on weather conditions
     };
     
     buttonCLick() {
