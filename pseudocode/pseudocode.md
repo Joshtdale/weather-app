@@ -86,7 +86,11 @@ temp: ...
     };
     
     buttonCLick() {
+      getWeather()
+      call axios on button click
+
        check if valid zip
+       
        if (invalid) {
        return error('invalid zip')
        };
