@@ -25,7 +25,7 @@ name: ...
 temp: ...
 
     var code = apiCode
-    global so that it can be updated
+    global so that it can be easily updated
 
 
 
@@ -74,8 +74,10 @@ temp: ...
        - images?
     }
     
-    tempConvert() {
+    tempConvert(temp) {
       converts temp values if needed
+      k - 273.15 = temp;
+      return temp;
     };
     
     image() {
