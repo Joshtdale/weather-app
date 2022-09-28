@@ -26,7 +26,12 @@ function createLayout(parentEl, tag, text) {
 }
 
 function initializeContent() {
-    createLayout(mainContainer, 'div', 'value text') 
+    createLayout(mainContainer, 'input', '') 
+    createLayout(mainContainer, 'button', 'Submit')
+    createLayout(mainContainer, 'div', 'Temp')
+    createLayout(mainContainer, 'div', 'Condition')
+    createLayout(mainContainer, 'div', 'value text')
+    createLayout(mainContainer, 'div', 'value text')
 
 
 };
