@@ -19,15 +19,22 @@ async function getWeather() {
 getWeather()
 
 parent = mainContainer
-function createLayout(parentEl, tag, text) {
+function createLayout(parentEl, tag, text, className, idName) {
     let element = document.createElement(tag)
     element.textContent = text
+    if (className) {
+        element.setAttribute('class', className)
+    };
+    if (idName) {
+        element.setAttribute('id', idName)
+    }
     parentEl.appendChild(element)
 }
 
 function initializeContent() {
     createLayout(mainContainer, 'input', '') 
-    createLayout(mainContainer, 'button', 'Submit')
+    createLayout(mainContainer, 'button', 'Submit', 'text-primary bg-alert')
+    createLayout(mainContainer, 'div', 'City')
     createLayout(mainContainer, 'div', 'Temp')
     createLayout(mainContainer, 'div', 'Condition')
     createLayout(mainContainer, 'div', 'value text')
