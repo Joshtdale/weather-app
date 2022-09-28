@@ -18,6 +18,31 @@ bootstrap
 api end point?
 zip code validation
 
+let ul = getElementById
+let li1 = createelement('li')
+li1.textContent
+ul.appendChild(li1)
+
+function createListItem(parentEl, tag, textContent){
+  Default text --- function createListItem(parentEl, tag, text = 'didn't include this'){
+if(!text){
+
+}
+   let list = document.createelement(tag)
+   list.textcontent = text
+   if(id) {
+      element.id = id
+   }
+   parentEl.appendChild(list)
+}
+
+init(){
+   createListItem(ul, 'li', 'list Item 1')
+   createListItem(ul, 'li', 'list Item 2')
+   createListItem(ul, 'li', 'list Item 3')
+   createListItem(main, 'div', 'list Item 1')
+}
+
 Find api data structure
 icon: ...
 Description: ...
@@ -51,7 +76,14 @@ temp: ...
        fetch('url + ${userInputZip} + apiCode or code')
        fetch returns values
        set interval for live update
+       time()
     };
+
+    time() {
+      new Date()
+      last updated time
+      getting updated time on set interval of getWeather()
+    }
 
     initialState() {
        getElementById
