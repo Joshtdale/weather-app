@@ -17,31 +17,34 @@ bootstrap
 
 api end point?
 zip code validation
+---
+## Methods
+      let ul = getElementById
+      let li1 = createelement('li')
+      li1.textContent
+      ul.appendChild(li1)
 
-let ul = getElementById
-let li1 = createelement('li')
-li1.textContent
-ul.appendChild(li1)
+      function createListItem(parentEl, tag, textContent){
+      Default text --- function createListItem(parentEl, tag, text = 'didn't include this'){
+      if(!text){
 
-function createListItem(parentEl, tag, textContent){
-  Default text --- function createListItem(parentEl, tag, text = 'didn't include this'){
-if(!text){
+      }
+         let list = document.createelement(tag)
+         list.textcontent = text
+         if(id) {
+            element.id = id
+         }
+         parentEl.appendChild(list)
+      }
 
-}
-   let list = document.createelement(tag)
-   list.textcontent = text
-   if(id) {
-      element.id = id
-   }
-   parentEl.appendChild(list)
-}
+      init(){
+         createListItem(ul, 'li', 'list Item 1')
+         createListItem(ul, 'li', 'list Item 2')
+         createListItem(ul, 'li', 'list Item 3')
+         createListItem(main, 'div', 'list Item 1')
+      }
 
-init(){
-   createListItem(ul, 'li', 'list Item 1')
-   createListItem(ul, 'li', 'list Item 2')
-   createListItem(ul, 'li', 'list Item 3')
-   createListItem(main, 'div', 'list Item 1')
-}
+---
 
 Find api data structure
 icon: ...
