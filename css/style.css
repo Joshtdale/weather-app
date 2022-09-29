@@ -1,5 +1,19 @@
 .card {
-    background-color: #8ab4f8;
+    /* background-color: #8ab4f8; */
+    background-color: #8ab4f8 !important;
     opacity: 0.9;
     /* border-radius: ; */
+}
+
+/* #mainContainer {
+} */
+
+#iconImg {
+    padding: 150px;
+}
+
+#conditionContainer {
+    height: 200px;
+    width: 200px;
+    align-items: center;
 }
