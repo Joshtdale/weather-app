@@ -1,5 +1,5 @@
 const apiKey = '7e8e7a9139e4f09fb253db0d8ddce620';
-const zip = '40517'
+let zip = ''
 
 let weatherConditions = [
     {
@@ -47,7 +47,7 @@ async function getWeather() {
     // initializeContent(response.data)
     // day1.city = response.data.city.name
 };
-getWeather()
+// getWeather()
 
 //parent = mainContainer
 function createLayout(parentEl, tag, text, className, idName,) {
@@ -61,27 +61,46 @@ function createLayout(parentEl, tag, text, className, idName,) {
     }
     parentEl.appendChild(element)
 }
+const mainContainer = document.getElementById('main_container')
 
-function initializeContent(data) {
-    const mainContainer = document.getElementById('main_container')
-    //nope
-    // console.log(day1.city)
-    day1.city = data.city.name
-    let kTemp = data.list[0].main.temp
-    let fahrenheitTemp = (kTemp - 273.15) * 9 / 5 + 32
-    let celsiusTemp = kTemp - 273.15
-    console.log(celsiusTemp)
-    
-    //header
+
+
+function headContent() {
+
     createLayout(mainContainer, 'div', '', 'col card', 'headContainer')
     createLayout(headContainer, 'h1', 'Weather app')
 
     // Zip input & button
     createLayout(mainContainer, 'div', '', 'row', 'formContainer')
     createLayout(formContainer, 'div', '', 'col', 'formInput')
-    createLayout(formInput, 'input', '')
+    createLayout(formInput, 'input', '', '', 'zipInput')
     createLayout(formContainer, 'div', '', 'col', 'btnCol')
     createLayout(btnCol, 'button', 'Get weather', 'text-primary', 'getWeatherBtn')
+    // let zipInput = document.getElementById(zipInput)
+    zipInput.setAttribute('value', '')
+    
+    getWeatherBtn.addEventListener('click', () => {
+        zip = zipInput.value
+        console.log(zip)
+        // mainContainer.removeChildren
+        // console.log('click')
+        getWeather()
+    })
+};
+headContent()
+
+function initializeContent(data) {
+    //nope
+    console.log(day1.city)
+    day1.city = data.city.name
+    kTemp = data.list[0].main.temp
+    fahrenheitTemp = (kTemp - 273.15) * 9 / 5 + 32
+    celsiusTemp = kTemp - 273.15
+    condition = data.list[0].weather[0].description
+    icon = data.list[0].weather[0].icon
+    // console.log(data.list[0].weather[0].icon)
+
+    //header
 
     // city
     createLayout(mainContainer, 'div', '', 'row', 'cityContainer')
@@ -95,16 +114,17 @@ function initializeContent(data) {
     createLayout(tempContainer, 'div', kTemp + 'K', 'col', 'kelvin')
 
     // Condition
-    createLayout(mainContainer, 'div', 'Condition')
+    createLayout(mainContainer, 'div', '', 'row', 'conditionContainer')
+    createLayout(conditionContainer, 'div', condition, 'col')
 
     // Icon
-    createLayout(mainContainer, 'div', 'value text')
-    createLayout(mainContainer, 'div', 'stuff')
+    createLayout(mainContainer, 'div', '', 'row', 'iconContainer')
+    createLayout(iconContainer, 'img', '', 'col', 'iconImg')
+    // let iconImg = document.getElementById('iconImg')
 
+    // iconImg.setAttribute('src', `http://openweathermap.org/img/wn${icon}.png`)
+
+    // let img.src = `http://openweathermap.org/img/wn/${icon}.png`
     // console.log(getWeatherBtn)
-    // console.log(data)
 };
 
-// console.log(day1.city)
-
-// initializeContent()
