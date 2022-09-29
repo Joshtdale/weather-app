@@ -1,4 +1,4 @@
-const apiKey = '7e8e7a9139e4f09fb253db0d8ddce620'
+const apiKey = '7e8e7a9139e4f09fb253db0d8ddce620';
 
 let weatherConditions = [
     {
@@ -6,30 +6,31 @@ let weatherConditions = [
         temp: '',
         condition: '',
         icon: '',
-        
+
     },
     {
         city: '',
         temp: '',
         condition: '',
         icon: '',
-        
+
     },
     {
         city: '',
         temp: '',
         condition: '',
         icon: '',
-        
+
     },
     {
         city: '',
         temp: '',
         condition: '',
         icon: '',
-        
+
     }
 ]
+
 
 let day1 = weatherConditions[0]
 let day2 = weatherConditions[1]
@@ -39,7 +40,8 @@ let day4 = weatherConditions[3]
 
 async function getWeather() {
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?zip=40517,us&appid=${apiKey}`)
-    // initializeContent(response.data.list[0])
+    let data = response.data;
+    initializeContent(data)
     // console.log(response.data.city.name)
     // initializeContent(response.data)
     // day1.city = response.data.city.name
@@ -47,7 +49,7 @@ async function getWeather() {
 getWeather()
 
 //parent = mainContainer
-function createLayout(parentEl, tag, text, className, idName, ) {
+function createLayout(parentEl, tag, text, className, idName,) {
     let element = document.createElement(tag)
     element.textContent = text
     if (className) {
@@ -59,38 +61,41 @@ function createLayout(parentEl, tag, text, className, idName, ) {
     parentEl.appendChild(element)
 }
 
-function initializeContent() {
+function initializeContent(data) {
     const mainContainer = document.getElementById('main_container')
+    //nope
+    console.log(day1.city)
 
-//header
+    //header
     createLayout(mainContainer, 'div', '', 'col card', 'headContainer')
     createLayout(headContainer, 'h1', 'Weather app')
 
-// Zip input & button
+    // Zip input & button
     createLayout(mainContainer, 'div', '', 'row', 'formContainer')
     createLayout(formContainer, 'div', '', 'col', 'formInput')
-    createLayout(formInput, 'input', '') 
+    createLayout(formInput, 'input', '')
     createLayout(formContainer, 'div', '', 'col', 'btnCol')
     createLayout(btnCol, 'button', 'Get weather', 'text-primary', 'getWeatherBtn')
 
-// city
+    // city
     createLayout(mainContainer, 'div', '', 'row', 'cityContainer')
     createLayout(cityContainer, 'div', '', 'col', 'cityCol')
     createLayout(cityCol, 'div', 'City', 'text-center',)
 
-// Temp
+    // Temp
     createLayout(mainContainer, 'div', 'Temp')
 
-// Condition
+    // Condition
     createLayout(mainContainer, 'div', 'Condition')
 
-// Icon
+    // Icon
     createLayout(mainContainer, 'div', 'value text')
+    createLayout(mainContainer, 'div', 'stuff')
 
-    console.log(getWeatherBtn)
-    
-    // day1.city = data.city.name
-    // console.log(day1.city)
+    // console.log(getWeatherBtn)
+
+    day1.city = data.city.name
+    console.log(day1.city)
 };
 
 
