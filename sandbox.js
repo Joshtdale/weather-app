@@ -43,7 +43,7 @@ async function getWeather() {
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&appid=${apiKey}`)
     // data = response.data;
     initializeContent(response.data)
-    // console.log(response.data.city.name)       
+    // console.log(response.data.list.main)       
     // initializeContent(response.data)
     // day1.city = response.data.city.name
 };
@@ -66,7 +66,12 @@ function initializeContent(data) {
     const mainContainer = document.getElementById('main_container')
     //nope
     // console.log(day1.city)
-
+    day1.city = data.city.name
+    let kTemp = data.list[0].main.temp
+    let fahrenheitTemp = (kTemp - 273.15) * 9 / 5 + 32
+    let celsiusTemp = kTemp - 273.15
+    console.log(celsiusTemp)
+    
     //header
     createLayout(mainContainer, 'div', '', 'col card', 'headContainer')
     createLayout(headContainer, 'h1', 'Weather app')
@@ -84,7 +89,10 @@ function initializeContent(data) {
     createLayout(cityCol, 'div', day1.city, 'text-center',)
 
     // Temp
-    createLayout(mainContainer, 'div', 'Temp')
+    createLayout(mainContainer, 'div', '', 'row', 'tempContainer')
+    createLayout(tempContainer, 'div', Math.ceil(celsiusTemp) + '°C', 'col', 'celsius')
+    createLayout(tempContainer, 'div', Math.ceil(fahrenheitTemp) + '°F', 'col', 'farenheight')
+    createLayout(tempContainer, 'div', kTemp + 'K', 'col', 'kelvin')
 
     // Condition
     createLayout(mainContainer, 'div', 'Condition')
@@ -94,10 +102,9 @@ function initializeContent(data) {
     createLayout(mainContainer, 'div', 'stuff')
 
     // console.log(getWeatherBtn)
-    day1.city = data.city.name
-    console.log(day1.city)
     // console.log(data)
 };
 
+// console.log(day1.city)
 
 // initializeContent()
