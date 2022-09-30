@@ -21,8 +21,8 @@ async function getWeather() {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}`)
         stateValues(response.data)
 
-        initializeContent()
-        
+        initializeContent()                                                                         
+
         // console.log(response.data)
     // } catch {
     //     alert('shit')
@@ -68,13 +68,18 @@ function headContent() {
         // if (mainContainer.firstChild){
         //     mainContainer.removeChild
         // }
+        // if (elementClicked){
+        //     console.log('button already clicked')
+        //     stateValues()
+        // }
         zip = zipInput.value
-        
-        // initializeContent()
+        elementClicked = true;
         getWeather()
     })
 };
 headContent()
+
+// let elementClicked = false;
 
 function stateValues(data) {
     // weather for day 1
@@ -89,8 +94,6 @@ function stateValues(data) {
 console.log(weatherConditions[0].city)
 
 function initializeContent() {
-
-
 
     // city
     createLayout(mainContainer, 'div', '', 'row', 'cityContainer')
