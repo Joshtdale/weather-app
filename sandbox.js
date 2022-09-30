@@ -1,36 +1,9 @@
 const apiKey = '7e8e7a9139e4f09fb253db0d8ddce620';
 
 //////// TAKE THIS OUT //////////
-let zip = '40517'///////////////
+let zip = ''///////////////
 ///////////////////////////////
 let weatherConditions = [
-    {
-        city: '',
-        kTemp: '',
-        fahrenheitTemp: '',
-        celsiusTemp: '',
-        condition: '',
-        icon: '',
-
-    },
-    {
-        city: '',
-        kTemp: '',
-        fahrenheitTemp: '',
-        celsiusTemp: '',
-        condition: '',
-        icon: '',
-
-    },
-    {
-        city: '',
-        kTemp: '',
-        fahrenheitTemp: '',
-        celsiusTemp: '',
-        condition: '',
-        icon: '',
-
-    },
     {
         city: '',
         kTemp: '',
@@ -53,7 +26,7 @@ async function getWeather() {
     console.log(response.data)
 
 };
-getWeather()
+// getWeather()
 
 //parent = mainContainer
 function createLayout(parentEl, tag, text, className, idName,) {
@@ -80,12 +53,12 @@ function headContent() {
     createLayout(headContainer, 'h1', 'Weather app',)
 
     // Zip input & button
-    createLayout(mainContainer, 'div', '', 'row', 'formContainer')
-    createLayout(formContainer, 'div', '', 'col', 'formInput')
-    createLayout(formInput, 'input', '', '', 'zipInput')
+    createLayout(mainContainer, 'div', '', 'input-group', 'formContainer')
+    createLayout(formContainer, 'input', '', 'form', 'zipInput')
+    createLayout(formContainer, 'div', '', 'input-group-prepend', 'formInput')
     zipInput.setAttribute('value', '')
-    createLayout(formContainer, 'div', '', 'col', 'btnCol')
-    createLayout(btnCol, 'button', 'Get weather', 'text-primary', 'getWeatherBtn')
+    zipInput.setAttribute('placeholder', 'Enter zip code')
+    createLayout(formInput, 'button', 'Get weather', 'btn btn-outline-secondary', 'getWeatherBtn')
 
 
     getWeatherBtn.addEventListener('click', () => {
@@ -112,7 +85,7 @@ function initializeContent(data) {
     // city
     createLayout(mainContainer, 'div', '', 'row', 'cityContainer')
     createLayout(cityContainer, 'div', '', 'col', 'cityCol')
-    createLayout(cityCol, 'div', weatherConditions[0].city, 'text-center fs-1',)
+    createLayout(cityCol, 'p', weatherConditions[0].city, 'text-center fs-1',)
 
     // Temp
     createLayout(mainContainer, 'div', '', 'row', 'tempContainer')
@@ -123,11 +96,11 @@ function initializeContent(data) {
     // Condition
     createLayout(mainContainer, 'div', '', 'row', 'conditionContainer')
     createLayout(conditionContainer, 'div', '', 'col', 'conditionCol')
-    createLayout(conditionCol, 'div', weatherConditions[0].condition, 'shadow-lg')
+    createLayout(conditionCol, 'div', weatherConditions[0].condition, '')
 
     // Icon
     createLayout(mainContainer, 'div', '', 'row mg-50', 'iconContainer')
-    createLayout(iconContainer, 'img', '', 'col shadow-lg', 'iconImg')
+    createLayout(iconContainer, 'img', '', 'col', 'iconImg')
     iconImg.src = `https://openweathermap.org/img/w/${weatherConditions[0].icon}.png`;
 
 };

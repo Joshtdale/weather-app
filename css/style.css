@@ -1,19 +1,88 @@
+body {
+    background: linear-gradient(#8ab4f8, lightblue);
+    height: 700px;
+}
+
 .card {
     /* background-color: #8ab4f8; */
-    background-color: #8ab4f8 !important;
+    background: linear-gradient(#8ab4f8, lightblue)  !important;
     opacity: 0.9;
     /* border-radius: ; */
 }
 
-/* #mainContainer {
+/* #formContainer {
+    height: 50px;
+    align-items: baseline;
+    align-content: center;
+} */
+
+/* #formInput {
+    border-radius: 30px;
 } */
 
 #iconImg {
     padding: 150px;
+    padding-top: 0;
 }
 
-#conditionContainer {
+#headContainer {
+    margin: 40px;
+    opacity: 0.9;
+}
+
+/* #conditionContainer {
     height: 200px;
     width: 200px;
     align-items: center;
+} */
+
+#cityContainer {
+    padding: 50px;
+    opacity: 0.9;
+}
+
+#zipInput {
+    margin-right: 0;
+    padding: 0;
+}
+
+/* #getWeatherBtn {
+    margin-left: 0;
+    padding: 0;
+} */
+
+#conditionContainer {
+    padding: 50px;
+}
+
+/* #cityCol {
+    height: 100px;
+} */
+
+.row>* {
+    padding: 0; !important
+}
+
+#farenheight {
+    font-size: 40px;
+    opacity: 0.9;
+}
+
+#celsius {
+    padding-top: 20px;
+    opacity: 0.5;
+}
+
+#kelvin {
+    padding-top: 20px;
+    opacity: 0.5;
+}
+
+.btn-secondary {
+    opacity: 0.7;
+}
+
+.input-group {
+    justify-content: center;
+    opacity: 0.8;
 }
