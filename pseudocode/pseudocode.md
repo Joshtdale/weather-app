@@ -4,7 +4,7 @@ Current weather
 temp
 image
 
-![wireframe](./weather-app.png)
+![wireframe](./images/weather-app.png)
 
 single div
 - dynamic generation with javascript
