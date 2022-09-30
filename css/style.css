@@ -59,9 +59,9 @@ body {
     height: 100px;
 } */
 
-.row>* {
+/* .row>* {
     padding: 0; !important
-}
+} */
 
 #farenheight {
     font-size: 40px;
