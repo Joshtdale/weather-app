@@ -68,8 +68,8 @@ function headContent() {
         // if (elementContainer.firstChild){
         //     mainContainer.removeChild
         // }
-        if (elementContainer.firstChild){
-            console.log('button already clicked')
+        if (elementClicked){
+            // console.log('button already clicked')
             mainContainer.removeChild(elementContainer)
         }
         zip = zipInput.value
@@ -92,8 +92,6 @@ function stateValues(data) {
 };
 
 console.log(weatherConditions[0].city)
-
-// const 
 
 function initializeContent() {
 
