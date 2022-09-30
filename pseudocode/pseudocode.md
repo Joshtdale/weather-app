@@ -1,4 +1,5 @@
 
+## Wireframe (project layout example)
 ![wireframe](./images/weather-app.png)
 
 ## Notes

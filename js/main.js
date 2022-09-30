@@ -17,13 +17,16 @@ let weatherConditions = [
 
 
 async function getWeather() {
-    // try{
-    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}`)
-    initializeContent(response.data)
+    // try {
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}`)
+        stateValues(response.data)
+
+        initializeContent()
+        
+        // console.log(response.data)
     // } catch {
     //     alert('shit')
     // }
-    console.log(response.data)
 
 };
 // getWeather()
@@ -49,7 +52,7 @@ const mainContainer = document.getElementById('main_container')
 function headContent() {
 
     // "Weather app" header
-    createLayout(mainContainer, 'div', '', 'col', 'headContainer')
+    createLayout(mainContainer, 'div', '', 'col-12-sm col-4-lg', 'headContainer')
     createLayout(headContainer, 'h1', 'Weather app',)
 
     // Zip input & button
@@ -66,19 +69,26 @@ function headContent() {
         //     mainContainer.removeChild
         // }
         zip = zipInput.value
+        
+        // initializeContent()
         getWeather()
     })
 };
 headContent()
 
-function initializeContent(data) {
-// weather for day 1
+function stateValues(data) {
+    // weather for day 1
     weatherConditions[0].city = data.name
     weatherConditions[0].kTemp = data.main.temp
     weatherConditions[0].fahrenheitTemp = (weatherConditions[0].kTemp - 273.15) * 9 / 5 + 32
     weatherConditions[0].celsiusTemp = weatherConditions[0].kTemp - 273.15
     weatherConditions[0].condition = data.weather[0].description
     weatherConditions[0].icon = data.weather[0].icon
+};
+
+console.log(weatherConditions[0].city)
+
+function initializeContent() {
 
 
 
