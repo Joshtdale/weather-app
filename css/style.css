@@ -1,12 +1,15 @@
 body {
-    background: linear-gradient(#8ab4f8, lightblue);
+    /* background: linear-gradient(#8ab4f8, lightblue); */
     height: 700px;
 }
 
 .card {
     /* background-color: #8ab4f8; */
-    background: linear-gradient(#8ab4f8, lightblue)  !important;
-    opacity: 0.9;
+    /* background: linear-gradient(#8ab4f8, lightblue)  !important; */
+    background-image: url(/images/output-onlinepngtools.jpg);
+    /* opacity: 0.9; */
+    height: 700px;
+    color: grey;
     /* border-radius: ; */
 }
 
@@ -38,7 +41,7 @@ body {
 
 #cityContainer {
     padding: 50px;
-    opacity: 0.9;
+    /* opacity: 0.9; */
 }
 
 #zipInput {
@@ -64,17 +67,17 @@ body {
 } */
 
 #farenheight {
-    font-size: 40px;
-    opacity: 0.9;
+    font-size: 50px;
+    /* opacity: 0.9; */
 }
 
 #celsius {
-    padding-top: 20px;
+    padding-top: 30px;
     opacity: 0.5;
 }
 
 #kelvin {
-    padding-top: 20px;
+    padding-top: 30px;
     opacity: 0.5;
 }
 
@@ -88,6 +91,10 @@ body {
 }
 
 .condition {
-    font-size: 20px;
+    font-size: 30px;
     opacity: 0.9;
 }
+
+/* #mainContainer {
+    height: 700px;
+} */
