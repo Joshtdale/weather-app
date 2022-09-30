@@ -58,7 +58,7 @@ function headContent() {
     createLayout(formContainer, 'div', '', 'input-group-prepend', 'formInput')
     zipInput.setAttribute('value', '')
     zipInput.setAttribute('placeholder', 'Enter zip code')
-    createLayout(formInput, 'button', 'Get weather', 'btn btn-outline-secondary', 'getWeatherBtn')
+    createLayout(formInput, 'button', 'Get weather', 'btn btn-outline-primary', 'getWeatherBtn')
 
 
     getWeatherBtn.addEventListener('click', () => {
@@ -96,7 +96,7 @@ function initializeContent(data) {
     // Condition
     createLayout(mainContainer, 'div', '', 'row', 'conditionContainer')
     createLayout(conditionContainer, 'div', '', 'col', 'conditionCol')
-    createLayout(conditionCol, 'div', weatherConditions[0].condition, '')
+    createLayout(conditionCol, 'div', weatherConditions[0].condition, 'condition')
 
     // Icon
     createLayout(mainContainer, 'div', '', 'row mg-50', 'iconContainer')
