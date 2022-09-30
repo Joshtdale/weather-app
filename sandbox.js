@@ -17,16 +17,16 @@ let weatherConditions = [
 
 
 async function getWeather() {
-    // try {
+    try {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}`)
         stateValues(response.data)
 
         initializeContent()                                                                         
 
         // console.log(response.data)
-    // } catch {
-    //     alert('shit')
-    // }
+    } catch {
+        alert('shit')
+    }
 
 };
 // getWeather()
@@ -65,13 +65,13 @@ function headContent() {
 
 
     getWeatherBtn.addEventListener('click', () => {
-        // if (mainContainer.firstChild){
+        // if (elementContainer.firstChild){
         //     mainContainer.removeChild
         // }
-        // if (elementClicked){
-        //     console.log('button already clicked')
-        //     stateValues()
-        // }
+        if (elementContainer.firstChild){
+            console.log('button already clicked')
+            mainContainer.removeChild(elementContainer)
+        }
         zip = zipInput.value
         elementClicked = true;
         getWeather()
@@ -79,7 +79,7 @@ function headContent() {
 };
 headContent()
 
-// let elementClicked = false;
+let elementClicked = false;
 
 function stateValues(data) {
     // weather for day 1
@@ -93,26 +93,30 @@ function stateValues(data) {
 
 console.log(weatherConditions[0].city)
 
+// const 
+
 function initializeContent() {
 
+    createLayout(mainContainer, 'div', '', '', 'elementContainer')
+
     // city
-    createLayout(mainContainer, 'div', '', 'row', 'cityContainer')
+    createLayout(elementContainer, 'div', '', 'row', 'cityContainer')
     createLayout(cityContainer, 'div', '', 'col', 'cityCol')
     createLayout(cityCol, 'p', weatherConditions[0].city, 'text-center fs-1',)
 
     // Temp
-    createLayout(mainContainer, 'div', '', 'row', 'tempContainer')
+    createLayout(elementContainer, 'div', '', 'row', 'tempContainer')
     createLayout(tempContainer, 'div', Math.ceil(weatherConditions[0].celsiusTemp) + '°C', 'col', 'celsius')
     createLayout(tempContainer, 'div', Math.ceil(weatherConditions[0].fahrenheitTemp) + '°F', 'col', 'farenheight')
     createLayout(tempContainer, 'div', weatherConditions[0].kTemp + 'K', 'col', 'kelvin')
 
     // Condition
-    createLayout(mainContainer, 'div', '', 'row', 'conditionContainer')
+    createLayout(elementContainer, 'div', '', 'row', 'conditionContainer')
     createLayout(conditionContainer, 'div', '', 'col', 'conditionCol')
     createLayout(conditionCol, 'div', weatherConditions[0].condition, 'condition')
 
     // Icon
-    createLayout(mainContainer, 'div', '', 'row mg-50', 'iconContainer')
+    createLayout(elementContainer, 'div', '', 'row mg-50', 'iconContainer')
     createLayout(iconContainer, 'img', '', 'col', 'iconImg')
     iconImg.src = `https://openweathermap.org/img/w/${weatherConditions[0].icon}.png`;
 
