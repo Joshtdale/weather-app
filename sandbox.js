@@ -17,12 +17,12 @@ let weatherConditions = [
 
 
 async function getWeather() {
-    // try{
+    try{
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}`)
     initializeContent(response.data)
-    // } catch {
-    //     alert('shit')
-    // }
+    } catch {
+        alert('shit')
+    }
     console.log(response.data)
 
 };
@@ -49,7 +49,7 @@ const mainContainer = document.getElementById('main_container')
 function headContent() {
 
     // "Weather app" header
-    createLayout(mainContainer, 'div', '', 'col', 'headContainer')
+    createLayout(mainContainer, 'div', '', 'col-12-sm col-4-lg', 'headContainer')
     createLayout(headContainer, 'h1', 'Weather app',)
 
     // Zip input & button

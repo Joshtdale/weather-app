@@ -1,11 +1,7 @@
-zip code input
-city
-Current weather
-temp
-image
 
 ![wireframe](./images/weather-app.png)
 
+## Notes
 single div
 - dynamic generation with javascript
 
@@ -17,8 +13,17 @@ bootstrap
 
 api end point?
 zip code validation
+
+## API values
+zip code input
+city
+Current weather
+temp
+image
 ---
 ## Methods
+
+### Element creation
       let ul = getElementById
       let li1 = createelement('li')
       li1.textContent
@@ -46,41 +51,62 @@ zip code validation
 
 ---
 
-Find api data structure
-icon: ...
-Description: ...
-name: ...
-temp: ...
+Find api data structure<br>
+icon: ...<br>
+Description: ...<br>
+name: ...<br>
+temp: ...<br>
 
-    var code = apiCode
+
+    variable code = apiCode
+    hard coded and at the top so that it is edited easily
     global so that it can be easily updated
 
 
 
     state = [
-      data()
       object values from data funct
     {
        icon: ...
        Description: ...
        name: ...
        temp: ...
-    },
-    {
-    icon: ...
-       Description: ...
-       name: ...
-       temp: ...
     }
-    ];
+
+    InitialState(){
+      creates head text and form input on
+      page load
+      called on page load
+    }
+    initalState()
     
+
+
+      createElements(parent, childBeingCreated, text, class, id ){
+         creates elements by taking input
+         parameters then runs them through
+         the same code in this function to
+         create elements
+         
+      }
+
+
     getWeather() {
     gets data from api
+
+      userInputZip - Template literal
+
        fetch('url + ${userInputZip} + apiCode or code')
        fetch returns values
        set interval for live update
        time()
+
+       check if valid zip
+       if (invalid) {
+       return error('invalid zip')
+       };
     };
+
 
     time() {
       new Date()
@@ -111,7 +137,7 @@ temp: ...
     
     tempConvert(temp) {
       converts temp values if needed
-      k - 273.15 = temp;
+      (k - 273.15 = temp);
       return temp;
     };
     
@@ -123,12 +149,6 @@ temp: ...
     buttonCLick() {
       getWeather()
       call axios on button click
-
-       check if valid zip
-       
-       if (invalid) {
-       return error('invalid zip')
-       };
     };
     
     clearData() {
