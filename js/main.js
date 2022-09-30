@@ -1,8 +1,11 @@
+// API key set globally so that it is easily edited if needed
 const apiKey = '7e8e7a9139e4f09fb253db0d8ddce620';
 
-//////// TAKE THIS OUT //////////
-let zip = ''///////////////
-///////////////////////////////
+// Zip value set globally to be edited later by user input
+let zip = ''
+
+
+// Values set globally to be edited later with stateValue()
 let weatherConditions = [
     {
         city: '',
@@ -15,21 +18,21 @@ let weatherConditions = [
     }
 ]
 
-
+// Gets values from API
+// If zip causes API to return an error
+// catch - alert message will run
 async function getWeather() {
-    // try {
+    try {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}`)
+
         stateValues(response.data)
 
-        initializeContent()                                                                         
-
-        // console.log(response.data)
-    // } catch {
-    //     alert('shit')
-    // }
+        initializeContent()
+    } catch {
+        alert('shit')
+    }
 
 };
-// getWeather()
 
 //parent = mainContainer
 function createLayout(parentEl, tag, text, className, idName,) {
@@ -54,7 +57,7 @@ function headContent() {
     // "Weather app" header
     createLayout(mainContainer, 'div', '', 'col-12-sm col-4-lg', 'headContainer')
     createLayout(headContainer, 'h1', 'Weather app',)
-
+    
     // Zip input & button
     createLayout(mainContainer, 'div', '', 'input-group', 'formContainer')
     createLayout(formContainer, 'input', '', 'form', 'zipInput')
@@ -62,24 +65,23 @@ function headContent() {
     zipInput.setAttribute('value', '')
     zipInput.setAttribute('placeholder', 'Enter zip code')
     createLayout(formInput, 'button', 'Get weather', 'btn btn-outline-primary', 'getWeatherBtn')
-
+    
+    let elementClicked = false;
 
     getWeatherBtn.addEventListener('click', () => {
-        // if (mainContainer.firstChild){
-        //     mainContainer.removeChild
-        // }
-        // if (elementClicked){
-        //     console.log('button already clicked')
-        //     stateValues()
-        // }
+
+        if (elementClicked) {
+            mainContainer.removeChild(elementContainer)
+        }
+
         zip = zipInput.value
         elementClicked = true;
+
         getWeather()
     })
-};
-headContent()
 
-// let elementClicked = false;
+};
+
 
 function stateValues(data) {
     // weather for day 1
@@ -91,29 +93,33 @@ function stateValues(data) {
     weatherConditions[0].icon = data.weather[0].icon
 };
 
-console.log(weatherConditions[0].city)
 
 function initializeContent() {
-
+    
+    createLayout(mainContainer, 'div', '', '', 'elementContainer')
+    
     // city
-    createLayout(mainContainer, 'div', '', 'row', 'cityContainer')
+    createLayout(elementContainer, 'div', '', 'row', 'cityContainer')
     createLayout(cityContainer, 'div', '', 'col', 'cityCol')
     createLayout(cityCol, 'p', weatherConditions[0].city, 'text-center fs-1',)
-
+    
     // Temp
-    createLayout(mainContainer, 'div', '', 'row', 'tempContainer')
+    createLayout(elementContainer, 'div', '', 'row', 'tempContainer')
     createLayout(tempContainer, 'div', Math.ceil(weatherConditions[0].celsiusTemp) + '°C', 'col', 'celsius')
     createLayout(tempContainer, 'div', Math.ceil(weatherConditions[0].fahrenheitTemp) + '°F', 'col', 'farenheight')
     createLayout(tempContainer, 'div', weatherConditions[0].kTemp + 'K', 'col', 'kelvin')
-
+    
     // Condition
-    createLayout(mainContainer, 'div', '', 'row', 'conditionContainer')
+    createLayout(elementContainer, 'div', '', 'row', 'conditionContainer')
     createLayout(conditionContainer, 'div', '', 'col', 'conditionCol')
     createLayout(conditionCol, 'div', weatherConditions[0].condition, 'condition')
-
+    
     // Icon
-    createLayout(mainContainer, 'div', '', 'row mg-50', 'iconContainer')
+    createLayout(elementContainer, 'div', '', 'row mg-50', 'iconContainer')
     createLayout(iconContainer, 'img', '', 'col', 'iconImg')
     iconImg.src = `https://openweathermap.org/img/w/${weatherConditions[0].icon}.png`;
-
+    
 };
+
+// Runs header and form on page load
+headContent()
