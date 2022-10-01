@@ -100,7 +100,7 @@ function headContent() {
 
 
 function stateValues(data) {
-    // weather for day 1
+    // Grabbing values from API and updating values of weatherConditions object
     weatherConditions[0].city = data.name
     weatherConditions[0].kTemp = data.main.temp
     weatherConditions[0].fahrenheitTemp = (weatherConditions[0].kTemp - 273.15) * 9 / 5 + 32
