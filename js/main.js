@@ -30,6 +30,7 @@ async function getWeather() {
         initializeContent()
     } catch {
         alert('shit')
+        zip = ''
     }
 
 };
@@ -64,6 +65,7 @@ function headContent() {
     createLayout(formContainer, 'div', '', 'input-group-prepend', 'formInput')
     zipInput.setAttribute('value', '')
     zipInput.setAttribute('placeholder', 'Enter zip code')
+    zipInput.setAttribute('type', 'number')
     createLayout(formInput, 'button', 'Get weather', 'btn btn-outline-primary', 'getWeatherBtn')
     
     let elementClicked = false;
@@ -75,7 +77,7 @@ function headContent() {
         }
 
         zip = zipInput.value
-        elementClicked = true;
+        
 
         getWeather()
     })
@@ -95,7 +97,8 @@ function stateValues(data) {
 
 
 function initializeContent() {
-    
+    elementClicked = true;
+
     createLayout(mainContainer, 'div', '', '', 'elementContainer')
     
     // city
