@@ -1,7 +1,7 @@
-body {
+/* body { */
     /* background: linear-gradient(#8ab4f8, lightblue); */
-    height: 700px;
-}
+    /* height: 100vh; */
+/* } */
 
 .card {
     /* background-color: #8ab4f8; */
@@ -10,7 +10,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     /* opacity: 0.9; */
-    height: 700px;
+    height: 100vh;
     color: black;
     /* border-radius: ; */
 }

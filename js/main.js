@@ -29,21 +29,35 @@ async function getWeather() {
 
         initializeContent()
     } catch {
-        alert('shit')
+        alert('Enter a valid zip.\nOr else...')
+
+    // Reloads page if zip invalid
+        location.reload()
     }
 
 };
 
-//parent = mainContainer
+
 function createLayout(parentEl, tag, text, className, idName,) {
+    // creates element based on tag input
+    // Example 'div' creates a div element
     let element = document.createElement(tag)
+    // Takes value of text and places it in innerText of
+    // the element being created
     element.innerText = text
+
+    // If className exists
     if (className) {
+        // Set class attribute of element = className
         element.setAttribute('class', className)
     };
+    // If idName exists
     if (idName) {
+        // Set id attribute of element = idName
         element.setAttribute('id', idName)
     }
+    // parentEl = parent element
+    // places the element being created inside parentEl
     parentEl.appendChild(element)
 }
 
@@ -64,18 +78,20 @@ function headContent() {
     createLayout(formContainer, 'div', '', 'input-group-prepend', 'formInput')
     zipInput.setAttribute('value', '')
     zipInput.setAttribute('placeholder', 'Enter zip code')
+    zipInput.setAttribute('type', 'number')
     createLayout(formInput, 'button', 'Get weather', 'btn btn-outline-primary', 'getWeatherBtn')
     
     let elementClicked = false;
-
+    
     getWeatherBtn.addEventListener('click', () => {
-
+        
         if (elementClicked) {
             mainContainer.removeChild(elementContainer)
         }
-
-        zip = zipInput.value
+        
         elementClicked = true;
+        zip = zipInput.value
+        
 
         getWeather()
     })
@@ -95,7 +111,7 @@ function stateValues(data) {
 
 
 function initializeContent() {
-    
+
     createLayout(mainContainer, 'div', '', '', 'elementContainer')
     
     // city
