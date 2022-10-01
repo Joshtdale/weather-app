@@ -11,7 +11,7 @@ body {
     background-repeat: no-repeat;
     /* opacity: 0.9; */
     height: 700px;
-    color: grey;
+    color: black;
     /* border-radius: ; */
 }
 
@@ -32,7 +32,7 @@ body {
 
 #headContainer {
     margin: 40px;
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 /* #conditionContainer {
@@ -43,7 +43,7 @@ body {
 
 #cityContainer {
     padding: 50px;
-    /* opacity: 0.9; */
+    opacity: 0.7;
 }
 
 #zipInput {
@@ -58,6 +58,7 @@ body {
 
 #conditionContainer {
     padding: 50px;
+
 }
 
 /* #cityCol {
@@ -70,7 +71,7 @@ body {
 
 #farenheight {
     font-size: 50px;
-    /* opacity: 0.9; */
+    opacity: 0.7;
 }
 
 #celsius {
@@ -83,9 +84,7 @@ body {
     opacity: 0.5;
 }
 
-.btn-secondary {
-    opacity: 0.7;
-}
+
 
 .input-group {
     justify-content: center;
@@ -94,7 +93,7 @@ body {
 
 .condition {
     font-size: 30px;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 /* #mainContainer {
